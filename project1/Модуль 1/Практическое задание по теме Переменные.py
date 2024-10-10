@@ -11,11 +11,13 @@ print('Название курса:', Course_name)
 # 4 Время на одно задание (вычислить используя 1 и 2 переменные)
 Time_spent_on_one_task = Number_of_hours_spent / Number_of_homework_completed
 print('Время на одно задание:', Time_spent_on_one_task)
-#Выведите на экран(в консоль), используя переменные, следующую строку:
-#Курс: Python, всего задач:12, затрачено часов: 1.5, среднее время выполнения 0.125 часа.
+# Выведите на экран(в консоль), используя переменные, следующую строку:
+# Курс: Python, всего задач:12, затрачено часов: 1.5, среднее время выполнения 0.125 часа.
 print('Курс: ', Course_name,', всего задач: ', Number_of_homework_completed , ', затрачено часов: ', Number_of_hours_spent, ', среднее время выполнения ', Time_spent_on_one_task, ' часа.', sep='')
 
 # Ещё методы вывода, так для себя
+# 1
 print(f'Курс: {Course_name}, всего задач: {Number_of_homework_completed}, затрачено часов: {Number_of_hours_spent}, среднее время выполнения {Time_spent_on_one_task} часа.')
+# 2
 result = f'Курс: {Course_name}, всего задач: {Number_of_homework_completed}, затрачено часов: {Number_of_hours_spent}, среднее время выполнения {Time_spent_on_one_task} часа.'
 print(result)
