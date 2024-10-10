@@ -16,8 +16,8 @@ print('Время на одно задание:', Time_spent_on_one_task)
 print('Курс: ', Course_name,', всего задач: ', Number_of_homework_completed , ', затрачено часов: ', Number_of_hours_spent, ', среднее время выполнения ', Time_spent_on_one_task, ' часа.', sep='')
 
 # Ещё методы вывода, так для себя
-# 1
+# 1 вариант
 print(f'Курс: {Course_name}, всего задач: {Number_of_homework_completed}, затрачено часов: {Number_of_hours_spent}, среднее время выполнения {Time_spent_on_one_task} часа.')
-# 2
+# 2 вариант
 result = f'Курс: {Course_name}, всего задач: {Number_of_homework_completed}, затрачено часов: {Number_of_hours_spent}, среднее время выполнения {Time_spent_on_one_task} часа.'
 print(result)
