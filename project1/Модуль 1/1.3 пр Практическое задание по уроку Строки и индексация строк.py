@@ -1,4 +1,4 @@
-# 1) В переменную example запишите любую строку.
+    # 1) В переменную example запишите любую строку.
 print('Вводные данные:')
 example = '0123456789abcdefgh'
 print('example = ' + example)
