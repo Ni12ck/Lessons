@@ -1,5 +1,4 @@
 # На вход даны следующие данные:
-from itertools import count
 
 # Список: grades = [[5, 3, 3, 5, 4], [2, 2, 2, 3], [4, 5, 5, 2], [4, 4, 3], [5, 5, 5, 4, 5]]
 # Множество: students = {'Johnny', 'Bilbo', 'Steve', 'Khendrik', 'Aaron'}
