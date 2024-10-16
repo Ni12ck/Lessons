@@ -30,7 +30,7 @@ students = {'Johnny', 'Bilbo', 'Steve', 'Khendrik', 'Aaron'} # 'Aaron','Bilbo', 
 # print('Сумма оценок у третьего ученика:', sum(grades[2]))
 # print('Сумма оценок у четвёртого ученика:', sum(grades[3]))
 # print('Сумма оценок у пятого ученика:', sum(grades[4]))
-# # Средний балл у первого ученика
+# # Средний балл у учеников
 # print('Средний балл у первого ученика:', sum(grades[0])/len(grades[0]))
 # print('Средний балл у второго ученика:', sum(grades[1])/len(grades[1]))
 # print('Средний балл у третьего ученика:', sum(grades[2])/len(grades[2]))
