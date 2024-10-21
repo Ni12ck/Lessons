@@ -66,3 +66,26 @@ for i in range(len(numbers)):
 print('Primes:', primes)
 # Вывод непростых чисел
 print('Not Primes:', not_primes)
+
+# Второй вариант без переменных is_prime и Number
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+# Создаю пустые списки primes и not_primes:
+primes = []
+not_primes = []
+# Перебираю список numbers
+for i in numbers:
+    # Если число равно 1, то пропускаем его
+    if i == 1:
+        continue
+    # Создаю вложенный цикл, который ищет делители
+    for j in primes:
+        if i % j == 0:
+            # Если число простое, то добавляю его в список с простыми числами
+            not_primes.append(i)
+            # Оптимизация(ускорить) процесса при помощи оператора break
+            break
+    else:
+            # Если число непростое, то добавляю его в список с непростыми числами
+            primes.append(i)
+# Вывод чисел
+print(f'Primes: {primes} \nNot Primes: {not_primes}')
