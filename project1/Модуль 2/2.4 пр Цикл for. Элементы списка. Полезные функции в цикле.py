@@ -51,7 +51,7 @@ for i in range(len(numbers)):
         continue
     # Создаю вложенный цикл, который ищет делители от 2 до проверяемого числа
     for j in range(2, Number):
-        # Если делители находятся, то число не является простым
+        # Если делители находятся, то число является составным
         if Number % j == 0:
             is_prime = False
             # Попробовал оптимизировать(ускорить) процесс при помощи оператора break
@@ -59,10 +59,30 @@ for i in range(len(numbers)):
     # Если число простое, то добавляю его в список с простыми числами
     if is_prime:
         primes.append(Number)
-    # Если число непростое, то добавляю его в список с непростыми числами
+    # Если число непростое, то добавляю его в список с составными числами
     else:
         not_primes.append(Number)
-# Вывод простых чисел
-print('Primes:', primes)
-# Вывод непростых чисел
-print('Not Primes:', not_primes)
+# Вывод чисел
+print(f'Primes: {primes} \nNot Primes: {not_primes}')
+
+# Второй вариант без переменных is_prime и Number
+# Создаю пустые списки primes и not_primes:
+primes = []
+not_primes = []
+# Перебираю список numbers
+for i in numbers:
+    # Если число равно 1, то пропускаем его
+    if i == 1:
+        continue
+    # Создаю вложенный цикл, который ищет делители
+    for j in primes:
+        if i % j == 0:
+            # Если число непростое, то добавляю его в список с составными числами
+            not_primes.append(i)
+            # Оптимизация процесса при помощи оператора break
+            break
+    else:
+            # Если число простое, то добавляю его в список с простыми числами
+            primes.append(i)
+# Вывод чисел
+print(f'Primes: {primes} \nNot Primes: {not_primes}')
