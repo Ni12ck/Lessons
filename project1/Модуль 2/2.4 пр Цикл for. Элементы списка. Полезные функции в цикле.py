@@ -41,7 +41,7 @@ not_primes = []
 # Создам переменную Number, которое будет проверяемым числом
 Number = 0
 # Перебираю список numbers
-for i in numbers:
+for i in range(len(numbers)):
     # Создам переменную is_prime, которая будет указывать на простоту числа
     is_prime = True
     # Присваиваю переменной Number значения из списка
