@@ -82,7 +82,6 @@ for i in numbers:
 print(f'Primes: {primes} \nNot Primes: {not_primes}')
 
 # Третий вариант
-primes = []
 not_primes = []
 # Если число равно 1, то пропускаем его
 for i in numbers:
