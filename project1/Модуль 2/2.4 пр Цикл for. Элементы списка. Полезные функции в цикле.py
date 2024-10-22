@@ -38,32 +38,28 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 # А в not_primes остальные (кроме 1).
 primes = []
 not_primes = []
-# Создам переменную Number, которая будет проверяемым числом
-Number = 0
 # Перебираю список numbers
-for i in range(len(numbers)):
+for i in numbers:
     # Создам переменную is_prime, которая будет указывать на простоту числа
     is_prime = True
-    # Присваиваю переменной Number значения из списка
-    Number = numbers[i]
     # Если число равно 1, то пропускаем его
-    if Number == 1:
+    if i == 1:
         continue
     # Создаю вложенный цикл, который ищет делители от 2 до проверяемого числа
-    for j in range(2, Number):
+    for j in range(2, i):
         # Если делители находятся, то число является составным
-        if Number % j == 0:
+        if i % j == 0:
             is_prime = False
     # Если число простое, то добавляю его в список с простыми числами
     if is_prime:
-        primes.append(Number)
+        primes.append(i)
     # Если число составное, то добавляю его в список с составными числами
     else:
-        not_primes.append(Number)
+        not_primes.append(i)
 # Вывод чисел
 print(f'Primes: {primes} \nNot Primes: {not_primes}')
 
-# Второй вариант без переменных is_prime и Number
+# Второй вариант без переменной is_prime
 # Создаю пустые списки primes и not_primes:
 primes = []
 not_primes = []
@@ -83,4 +79,22 @@ for i in numbers:
         # Если делители не находятся, то добавляю число в список с простыми числами
         primes.append(i)
 # Вывод чисел
+print(f'Primes: {primes} \nNot Primes: {not_primes}')
+
+# Третий вариант
+primes = []
+not_primes = []
+# Если число равно 1, то пропускаем его
+for i in numbers:
+    if i == 1:
+        continue
+    # Создаю вложенный цикл, который ищет делители
+    for j in range (2, i):
+        if i % j == 0:
+            # Записываем составные числа
+            not_primes.append(i)
+            # Убираю повторяющиеся значения, если нашли хоть один делитель, то сразу перехожу к следующему числу
+            break
+# Вычитаем из кортежа numbers кортеж с составными числами
+primes = list(set(numbers)-set(not_primes))
 print(f'Primes: {primes} \nNot Primes: {not_primes}')
