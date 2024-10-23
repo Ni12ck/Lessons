@@ -52,11 +52,9 @@
 # 19 - 118217316415514613712811910
 # 20 - 13141911923282183731746416515614713812911
 
-# Добавляю choice из функции random
-from random import choice
+# Добавляю randint из функции random
+from random import randint
 
-# Создам список key_number с возможными числами из первой "каменной вставке".
-key_number = range(3, 21)
 # Создам функцию result, которая будет выводить случайное значение и нужный пароль под это значение
 def get_password(first_number):
     # Список second_number будет составляться пароль - значение во второй "каменной вставке"
@@ -81,7 +79,7 @@ def get_password(first_number):
     return password
 
 # Присваиваю переменной random_number случайное число из списка key_number
-random_number = choice(key_number)
+random_number = randint(3, 20)
 # Вывожу число в первой "каменной вставке".
 print('Случайное число из первой вставки:', random_number)
 # Вызов функции get_password
