@@ -5,7 +5,7 @@ def check_winner():
         return 'X'
     if area[1][0] == 'X' and area[1][1] == 'X' and area[1][2] == 'X':
         return 'X'
-    if area[2][0] == 'X'  and area[2][1] == 'X' and area[2][2] == 'X':
+    if area[2][0] == 'X' and area[2][1] == 'X' and area[2][2] == 'X':
         return 'X'
     if area[0][0] == 'X' and area[1][0] == 'X' and area[2][0] == 'X':
         return 'X'
