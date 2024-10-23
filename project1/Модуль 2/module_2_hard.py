@@ -55,19 +55,14 @@
 # Добавляю choice из функции random
 from random import choice
 
-# Создам список key_number, из него буду брать случайное число для переменной first_number, которое показывает значение
-# в первой "каменной вставке".
+# Создам список key_number с возможными числами из первой "каменной вставке".
 key_number = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-first_number = choice(key_number)
-# Вывожу число в первой "каменной вставке".
-print('Случайное число из первой вставки:',first_number )
-# Список second_number будет составляться пароль - значение во второй "каменной вставке"
-second_number = []
-# Создам список пар чисел, сумма которых равна делителям числа из первой вставки
-list_couples = []
-
 # Создам функцию result, которая будет выводить случайное значение и нужный пароль под это значение
-def result():
+def get_password(first_number):
+    # Список second_number будет составляться пароль - значение во второй "каменной вставке"
+    second_number = []
+    # Создам список пар чисел, сумма которых равна делителям числа из первой вставки
+    list_couples = []
     for i in range(1, first_number):
         for j in range(1, first_number):
             # Условия составления списка пар чисел, сумма которых равна делителям числа из первой вставки
@@ -81,9 +76,16 @@ def result():
         second_number.extend(i)
     # Корректный вывод пароля - все элементы second_number записываются в строку без пробелов
     password = ''.join(str(i) for i in second_number)
-    # Вывод списков
+    # Вывод списка пар, из которых состоят делители
     print('Список пар, из которых состоят делители:', list_couples)
-    print(f'Результат: {first_number} - {password}')
+    return password
 
-# Вызов функции result
-result()
+# Присваиваю переменной random_number случайное число из списка key_number
+random_number = choice(key_number)
+# Вывожу число в первой "каменной вставке".
+print('Случайное число из первой вставки:', random_number)
+# Вызов функции get_password
+result = get_password(random_number)
+# Вывод результата
+print(f'Результат: {random_number} - {result}')
+
