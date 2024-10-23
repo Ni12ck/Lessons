@@ -61,33 +61,29 @@ key_number = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 first_number = choice(key_number)
 # Вывожу число в первой "каменной вставке".
 print('Случайное число из первой вставки:',first_number )
-
-# Создам Dividers - список делителей больше 2 для значения в первой "каменной вставке".
-Dividers = []
-# Переменная для нахождения делителей больше 2 для первого числа
-divider = 3
-# Создаю цикл для нахождения делителей больше 2 для первого числа
-while divider <= first_number:
-    if first_number % divider == 0:
-        Dividers.append(divider)
-    divider = divider + 1
-print('Список делителей:', Dividers)
-
+# Список second_number будет составляться пароль - значение во второй "каменной вставке"
+second_number = []
 # Создам список пар чисел, сумма которых равна делителям числа из первой вставки
 list_couples = []
 
-# Создам цикл для заполнения списка пар неравных друг другу чисел, сумма которых равна делителям числа из первой вставки
-for i in Dividers:
-    for j in range(1,i):
-        for k in range(j,i):
-            if i == j + k and j != k:
-                # Записываю нужные числа в список пар
-                list_couples.append(j)
-                list_couples.append(k)
+# Создам функцию result, которая будет выводить случайное значение и нужный пароль под это значение
+def result():
+    for i in range(1, first_number):
+        for j in range(1, first_number):
+            # Условия составления списка пар чисел, сумма которых равна делителям числа из первой вставки
+            # Число должно делиться на пару без остатка, первое и второе числа в парах разные,
+            # эта пара не должна повторяться
+            if all([first_number % (i + j) == 0 and i != j and [j, i] not in list_couples]):
+                # Заполню список пар чисел, сумма которых равна делителям числа из первой вставки
+                list_couples.append([i, j])
+    # Добавляю получившиеся значения в список, составляющий пароль
+    for i in list_couples:
+        second_number.extend(i)
+    # Корректный вывод пароля - все элементы second_number записываются в строку без пробелов
+    password = ''.join(str(i) for i in second_number)
+    # Вывод списков
+    print('Список пар, из которых состоят делители:', list_couples)
+    print(f'Результат: {first_number} - {password}')
 
-# Составлю список second_number из списка list_couples. Список second_number будет составляться пароль - значение во
-# второй "каменной вставке"
-second_number = ''.join([str(i) for i in list_couples])
-print('Список пар, из которых состоят делители:', list_couples)
-print('Пароль:', second_number)
-print(f'Результат: {first_number} - {second_number}')
+# Вызов функции result
+result()
