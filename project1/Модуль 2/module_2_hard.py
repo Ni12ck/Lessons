@@ -78,7 +78,7 @@ def get_password(first_number):
     print('Список пар, из которых состоят делители:', list_couples)
     return password
 
-# Присваиваю переменной random_number случайное число из списка key_number
+# Присваиваю переменной random_number случайное число от 3 до 20
 random_number = randint(3, 20)
 # Вывожу число в первой "каменной вставке".
 print('Случайное число из первой вставки:', random_number)
