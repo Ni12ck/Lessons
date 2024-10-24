@@ -86,4 +86,3 @@ print('Случайное число из первой вставки:', random_
 result = get_password(random_number)
 # Вывод результата
 print(f'Результат: {random_number} - {result}')
-
