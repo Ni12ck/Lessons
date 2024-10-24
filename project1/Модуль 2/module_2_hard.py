@@ -55,7 +55,7 @@
 # Добавляю randint из функции random
 from random import randint
 
-# Создам функцию result, которая будет выводить случайное значение и нужный пароль под это значение
+# Создам функцию get_password, которая создаёт пароль
 def get_password(first_number):
     # Список second_number будет составляться пароль - значение во второй "каменной вставке"
     second_number = []
