@@ -79,9 +79,6 @@ def is_contains(string, list_to_search):
             # Если строка найдена, то прерываю цикл
             result = True
             break
-        # Иначе пропускаем
-        else:
-            continue
     # Функция возвращает result
     return result
 
