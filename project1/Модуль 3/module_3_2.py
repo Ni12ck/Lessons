@@ -39,7 +39,7 @@
 # Невозможно отправить письмо с адреса urban.teacher@mail.uk на адрес urban.student@mail.ru
 # Нельзя отправить письмо самому себе!
 
-#Создаю функцию с трема аргументами message(сообщение), recipient(получатель) и 1 обязательно именованный аргумент со
+# Создаю функцию с трема аргументами message(сообщение), recipient(получатель) и 1 обязательно именованный аргумент со
 # значением по умолчанию sender = "university.help@gmail.com".
 def send_email(message, recipient, sender = "university.help@gmail.com"):
     # Проверка - есть ли в троке '@'
