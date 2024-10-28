@@ -51,17 +51,17 @@ def send_email(message, recipient, sender = "university.help@gmail.com"):
                 sender.endswith('.ru') or
                 sender.endswith('.com') or
                 sender.endswith('.net')]):
-        print('Невозможно отправить письмо с адреса', sender, 'на адрес', recipient + '.')
+        print(f'Невозможно отправить письмо с адреса {sender} на адрес, {recipient}.')
     # Условие, если при котором sender и recipient совпадают, то вывести "Нельзя отправить письмо самому себе!"
     elif recipient == sender:
         print('Нельзя отправить письмо самому себе!')
     # Условие, если при котором отправитель по умолчанию - university.help@gmail.com, то вывести сообщение:
     # "Письмо успешно отправлено с адреса <sender> на адрес <recipient>."
     elif sender == 'university.help@gmail.com':
-        print('Письмо успешно отправлено с адреса', sender, 'на адрес', recipient + '.')
+        print(f'Письмо успешно отправлено с адреса {sender} на адрес {recipient}.')
     # Условие, если при котором почта отправителя отличается от university.help@gmail.com
     else:
-        print('НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса', sender, 'на адрес', recipient + '.')
+        print(f'НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса {sender} на адрес {recipient}.')
 
 # Проверочные примеры вызовов функции
 send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
