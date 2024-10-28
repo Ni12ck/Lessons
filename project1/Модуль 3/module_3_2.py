@@ -41,7 +41,7 @@
 
 #Создаю функцию с трема аргументами message(сообщение), recipient(получатель) и 1 обязательно именованный аргумент со
 # значением по умолчанию sender = "university.help@gmail.com".
-def send_email(message, recipient, *, sender = "university.help@gmail.com"):
+def send_email(message, recipient, sender = "university.help@gmail.com"):
     # Проверка - есть ли в троке '@'
     if not all(['@' in recipient, '@' in sender,
                 # Проверки на окончание строки
