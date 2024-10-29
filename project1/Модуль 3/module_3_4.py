@@ -36,18 +36,14 @@ def single_root_words(root_word, *other_words):
         if root_word.lower() in i.lower() or i.lower() in root_word.lower():
             # Добавляю элемент из other_words в список same_words
             same_words.append(i)
+    # Разделил строки с результатами в консоли
+    print()
     # Функция возвращает список same_words
-    return same_words
+    return print(f'Список совпадений: {same_words}')
 
 
 # Вызовы функции
-result1 = single_root_words('rich', 'richiest', 'orichalcum', 'cheers', 'richies')
-result2 = single_root_words('Disablement', 'Able', 'Mable', 'Disable', 'Bagel')
-result3 = single_root_words('Air', 'airplane', 'air gun', 'ampleness', 'Airily')
-result4 = single_root_words('philosophical', 'Hi', 'call', 'Phil', 'lasso')
-
-# Вывод результатов
-print(result1)
-print(result2)
-print(result3)
-print(result4)
+single_root_words('rich', 'richiest', 'orichalcum', 'cheers', 'richies')
+single_root_words('Disablement', 'Able', 'Mable', 'Disable', 'Bagel')
+single_root_words('Air', 'airplane', 'air gun', 'ampleness', 'Airily')
+single_root_words('philosophical', 'Hi', 'call', 'Phil', 'lasso')
