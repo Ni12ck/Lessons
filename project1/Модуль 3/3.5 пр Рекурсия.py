@@ -37,11 +37,14 @@ def get_multiplied_digits(number):
     first = int(str_number[0])
     # Если число состоит более чем из одной цифры, то перемножаю first с последующей цифрой
     if len(str_number) > 1:
-        return first * get_multiplied_digits(int(str_number[1:]))
+        # При конвертации из str в int, например, строки "02" в целое число 2 - теряется 0, т.к. числа не записываются с 0
+        remain_string = str_number[1:]
+        remain_number = int(remain_string)
+        return first * get_multiplied_digits(remain_number)
     # Если число состоит из одной цифры, то возвращаю эту цифру
     else:
         return first
 
 
 # Вывод умножения: 1*2*3*4*5
-print(get_multiplied_digits(102030405))
+print(get_multiplied_digits(1020304050000000))
