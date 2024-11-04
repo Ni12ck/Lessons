@@ -69,8 +69,8 @@ def calculate_structure_sum(*args):
         # Если тип элемента int, то прибавляю его к сумме
         if isinstance(i, int):
             sum += i
-        # Если тип элемента str и длина строки больше 0, то прибавляю к сумме длину строки
-        elif isinstance(i, str) and len(i) > 0:
+        # Если тип элемента str, то прибавляю к сумме длину строки
+        elif isinstance(i, str):
             sum += len(i)
         # Если тип элемента list, tuple или set, то распаковываю эти списки, кортежи и множества, и прибавляю к сумме
         elif isinstance(i, (list, tuple, set)):
