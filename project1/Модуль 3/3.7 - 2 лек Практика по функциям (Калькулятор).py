@@ -1,6 +1,37 @@
 # Познакомимся с графической библиотекой tkinter
 # Можно изменить название библиотеки для удобства с помощью as "имя"
 import tkinter as tk
+from Lib.tkinter.constants import DISABLED, NORMAL
+
+
+def add():
+    answer_entry.config(state=NORMAL)
+    answer_entry.delete(0, 'end')
+    answer_entry.insert(0, str(int(number1_entry.get()) + int(number2_entry.get())))
+    answer_entry.config(state=DISABLED)
+    # number1_entry.config(width=200)
+
+
+def sub():
+    answer_entry.config(state=NORMAL)
+    answer_entry.delete(0, 'end')
+    answer_entry.insert(0, str(int(number1_entry.get()) - int(number2_entry.get())))
+    answer_entry.config(state=DISABLED)
+
+
+def div():
+    answer_entry.config(state=NORMAL)
+    answer_entry.delete(0, 'end')
+    answer_entry.insert(0, str(int(number1_entry.get()) / int(number2_entry.get())))
+    answer_entry.config(state=DISABLED)
+
+
+def mul():
+    answer_entry.config(state=NORMAL)
+    answer_entry.delete(0, 'end')
+    answer_entry.insert(0, str(int(number1_entry.get()) * int(number2_entry.get())))
+    answer_entry.config(state=DISABLED)
+
 
 # Создадим переменную window
 window = tk.Tk()
@@ -27,7 +58,7 @@ number1_entry = tk.Entry(window, width=28)
 number1_entry.place(x=100, y=75)
 number2_entry = tk.Entry(window, width=28)
 number2_entry.place(x=100, y=150)
-answer_entry = tk.Entry(window, width=28)
+answer_entry = tk.Entry(window, width=28, state=DISABLED)
 answer_entry.place(x=100, y=300)
 # Описание полей Label
 number1 = tk.Label(window, text="Введите первое число:")
