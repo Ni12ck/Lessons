@@ -85,3 +85,23 @@ def calculate_structure_sum(*args):
 
 
 print(f'Сумма всех чисел и длин строк: {calculate_structure_sum(*data_structure)}')
+
+
+# Второй вариант функции
+def calculate_structure_sum2(item):
+    sum = 0
+    if isinstance(item, int):  # Если элемент - целое число
+        sum += item
+    elif isinstance(item, str):  # Если элемент - строка
+        sum += len(item)
+    elif isinstance(item, (list, tuple, set)):  # Если элемент - список, кортеж или множество
+        for sub_item in item:
+            sum += calculate_structure_sum2(sub_item)
+    elif isinstance(item, dict):  # Если элемент - словарь
+        for key, value in item.items():
+            sum += calculate_structure_sum2(key)
+            sum += calculate_structure_sum2(value)
+    return sum
+
+
+print(f'Сумма всех чисел и длин строк(второй вариант): {calculate_structure_sum2(data_structure)}')
