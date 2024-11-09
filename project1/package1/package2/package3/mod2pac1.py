@@ -1,4 +1,4 @@
-from .mod1pac1 import hello
+from package1.package2.package3.mod1pac1 import hello
 
 
 def good_word(name):
