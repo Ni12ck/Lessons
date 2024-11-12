@@ -10,7 +10,7 @@ def test_function():
     def inner_function():
         print("Я в области видимости функции test_function")
 
-    # Вызовите функцию inner_function внутри функции test_function
+    # Вызвал функцию inner_function внутри функции test_function
     inner_function()
 
 
@@ -18,7 +18,7 @@ def test_function():
 # Я в области видимости функции test_function
 test_function()
 
-# Вызываю функцию inner_function внутри функции test_function
+# Вызвал функцию inner_function вне функции test_function
 inner_function()
 
 # Получил ошибку при вызове inner_function, потому что test_function объемлющая для inner_function:
