@@ -26,7 +26,6 @@ class House:
     # Создал метод go_to с параметром new_floor, который выводит на экран(в консоль) значения от 1 до
     # new_floor(включительно)
     def go_to(self, new_floor: int):
-        i = 1
         # Если new_floor больше чем self.number_of_floors или меньше 1, то вывожу строку "Такого этажа не существует"
         if all([new_floor > self.number_of_floors or new_floor < 1]):
             print("Такого этажа не существует")
