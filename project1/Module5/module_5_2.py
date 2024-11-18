@@ -18,7 +18,7 @@ class House:
     # Создал специальный метод __str__(self), который должен возвращать строку: "Название: <название>, кол-во этажей:
     # <этажи>"
     def __str__(self):
-        return str(f'Название: {self.name}, кол-во этажей: {self.number_of_floors}')
+        return f'Название: {self.name}, кол-во этажей: {self.number_of_floors}'
 
 
 # Создал два объекта класса House
