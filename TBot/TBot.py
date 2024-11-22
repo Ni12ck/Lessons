@@ -82,7 +82,8 @@ def get_weather_in(message, location):
     bot.send_message(message.from_user.id,
                      f'Текущая температура в городе {location}: {weather.current_condition[0].temp_c}С \n'
                      f'Погода в городе {location} завтра ({emoji} '
-                     f'{datetime.strptime(weather.weather[1].date, '%Y-%m-%d').strftime('%d-%m-%Y')} {emoji}) \n'
+                     # Сначала идёт парсинг строки str p, а потом форматирование str f 
+                     f'{datetime.strptime(weather.weather[1].date, '%Y-%m-%d').strftime('%d.%m.%Y')} {emoji}) \n'
                      f'Средняя температура: {weather.weather[1].avgtemp_c}С \n'
                      f'Минимальная температура: {weather.weather[1].mintemp_c}С \n'
                      f'Максимальная температура: {weather.weather[1].maxtemp_c}С')
