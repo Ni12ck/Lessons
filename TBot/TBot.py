@@ -9,6 +9,7 @@ bot = telebot.TeleBot(os.environ.get('TelegramToken'))
 current_month = datetime.now().month
 
 
+# Работа с функцией get_weather_in для конкретного города
 @bot.message_handler(commands=['weather'])
 def get_weather(message):
     get_weather_in(message, 'Иваново')
@@ -22,18 +23,6 @@ def cr_ni12ck(message):
 @bot.message_handler(commands=['Renton'])
 def renton(message):
     bot.send_message(message.from_user.id, 'https://www.japandict.com/')
-
-
-# @bot.message_handler(commands=['add_purchases'])
-# def add_purchases(message):
-#     bot.reply_to(message, 'Введите   ссылку на товар')
-
-
-@bot.message_handler(commands=['purchases'])
-def get_purchases(message):
-    with open("purchases.txt", "r", encoding="utf-8") as file:
-        purchases = file.read()
-        bot.send_message(message.from_user.id, purchases)
 
 
 @bot.message_handler(commands=['help', 'start'])
@@ -50,21 +39,36 @@ def joke_bot(message):
     bot.send_message(message.from_user.id, pyjokes.get_joke('ru'))
 
 
+# Создаёт файл "purchases.txt" для чтения, если его нет. Отправляет текст из файла пользователю.
+@bot.message_handler(commands=['purchases'])
+def get_purchases(message):
+    # encoding="utf-8" - позволяет работать с кириллицей, 'r' - работает как read
+    with open('purchases.txt', 'r', encoding='utf-8') as file:
+        purchases = file.read()
+        bot.send_message(message.from_user.id, purchases)
+
+
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
+    # Если пользователь пишет "/add сообщение", то это сообщение записывается в "purchases.txt"
     if message.text.startswith('/add'):
-        with open("purchases.txt", "a+", encoding="utf-8") as file:
+        # encoding="utf-8" - позволяет работать с кириллицей, "a+" - работает как append
+        with open('purchases.txt', 'a+', encoding='utf-8') as file:
+            # Запись сообщения в "purchases.txt", при этом '/add 'заменяется на пробел
             file.write(message.text.replace('/add ', '') + '\n')
     else:
+        # Отлов ошибок - название города
         try:
             get_weather_in(message, message.text)
         except:
             bot.send_message(message.from_user.id, "Вы ввели неверное название города, попробуйте снова")
 
 
+# Функция принимает сообщение от пользователя с названием города и присылает прогноз пользователю
 def get_weather_in(message, location):
-    weather = pywttr.get_weather(location, language)
+    weather = pywttr.get_weather(location, language)  # language = pywttr.Language.RU
 
+    # current_month = datetime.now().month
     emoji = ''
     if 6 <= current_month <= 8:
         emoji = '☀️'
