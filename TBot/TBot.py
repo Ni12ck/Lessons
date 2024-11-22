@@ -19,10 +19,30 @@ def cr_ni12ck(message):
     bot.send_message(message.from_user.id, 'Здравствуй создатель! Моя миссия выводить погоду?😢 О нет😱')
 
 
+@bot.message_handler(commands=['Renton'])
+def renton(message):
+    bot.send_message(message.from_user.id, 'https://www.japandict.com/')
+
+
+# @bot.message_handler(commands=['add_purchases'])
+# def add_purchases(message):
+#     bot.reply_to(message, 'Введите   ссылку на товар')
+
+
+@bot.message_handler(commands=['purchases'])
+def get_purchases(message):
+    with open("purchases.txt", "r", encoding="utf-8") as file:
+        purchases = file.read()
+        bot.send_message(message.from_user.id, purchases)
+
+
 @bot.message_handler(commands=['help', 'start'])
 def get_help(message):
     bot.send_message(message.from_user.id, 'Введите название города, чтобы получить прогноз погоды на завтра \n'
-                                           'Хотите анекдот? - /joke ')
+                                           'Хотите анекдот? - /joke \n'
+                                           'Японский словарь - /Renton \n'
+                                           'Список покупок - /purchases \n'
+                                           'Добавление товара - /add "сообщение"')
 
 
 @bot.message_handler(commands=['joke'])
@@ -32,10 +52,14 @@ def joke_bot(message):
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    try:
-        get_weather_in(message, message.text)
-    except:
-        bot.send_message(message.from_user.id, "Неверное название города")
+    if message.text.startswith('/add'):
+        with open("purchases.txt", "a+", encoding="utf-8") as file:
+            file.write(message.text.replace('/add ', '') + '\n')
+    else:
+        try:
+            get_weather_in(message, message.text)
+        except:
+            bot.send_message(message.from_user.id, "Вы ввели неверное название города, попробуйте снова")
 
 
 def get_weather_in(message, location):
@@ -53,7 +77,8 @@ def get_weather_in(message, location):
 
     bot.send_message(message.from_user.id,
                      f'Текущая температура в городе {location}: {weather.current_condition[0].temp_c}С \n'
-                     f'Погода в городе {location} завтра ({emoji} {weather.weather[1].date} {emoji}) \n'
+                     f'Погода в городе {location} завтра ({emoji} '
+                     f'{datetime.strptime(weather.weather[1].date, '%Y-%m-%d').strftime('%d-%m-%Y')} {emoji}) \n'
                      f'Средняя температура: {weather.weather[1].avgtemp_c}С \n'
                      f'Минимальная температура: {weather.weather[1].mintemp_c}С \n'
                      f'Максимальная температура: {weather.weather[1].maxtemp_c}С')
