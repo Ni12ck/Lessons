@@ -36,7 +36,7 @@ def get_help(message):
                                            'Японский словарь - /Renton \n'
                                            'Список покупок - /purchases \n'
                                            'Добавление товара - /add "сообщение" \n'
-                                           'Fortnite - /WorkingOwl')
+                                           'Антон, го?- /WorkingOwl')
 
 
 @bot.message_handler(commands=['joke'])
