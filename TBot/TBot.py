@@ -24,6 +24,10 @@ def cr_ni12ck(message):
 def renton(message):
     bot.send_message(message.from_user.id, 'https://www.japandict.com/')
 
+@bot.message_handler(commands=['WorkingOwl'])
+def workingowl(message):
+    bot.send_message(message.from_user.id, 'Го в форточку? \n https://i.gifer.com/WxTz.gif')
+
 
 @bot.message_handler(commands=['help', 'start'])
 def get_help(message):
@@ -31,7 +35,8 @@ def get_help(message):
                                            'Хотите анекдот? - /joke \n'
                                            'Японский словарь - /Renton \n'
                                            'Список покупок - /purchases \n'
-                                           'Добавление товара - /add "сообщение"')
+                                           'Добавление товара - /add "сообщение" \n'
+                                           'Fortnite - /WorkingOwl')
 
 
 @bot.message_handler(commands=['joke'])
