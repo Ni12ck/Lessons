@@ -17,7 +17,7 @@ class User:
         """Атрибуты: username - имя пользователя, password - пароль, password_confirm - подтверждение пароля"""
         self.username = username
         # Если пароль совпадает с подтверждением пароля, то тогда задаём этот пароль
-        if password == password_confirm: #and str.istitle(password) and (any(ch.isdigit() for ch in password)):
+        if password == password_confirm: #len(password) >= 8 and str.istitle(password) and (any(ch.isdigit() for ch in password)) :
             self.password = password
 
 
