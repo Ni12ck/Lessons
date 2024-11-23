@@ -26,7 +26,7 @@ def renton(message):
 
 @bot.message_handler(commands=['WorkingOwl'])
 def workingowl(message):
-    bot.send_message(message.from_user.id, 'Го в форточку? \n https://i.gifer.com/WxTz.gif')
+    bot.send_message(message.from_user.id, 'Го в форточку(Fortnite)? \n https://i.gifer.com/WxTz.gif')
 
 
 @bot.message_handler(commands=['help', 'start'])
