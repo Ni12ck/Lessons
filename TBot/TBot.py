@@ -44,8 +44,8 @@ def get_help(message):
                                            'Японский словарь - /Renton\n'
                                            'Список покупок - /purchases\n'
                                            'Добавление товара - /add "сообщение"\n'
-                                           'Антон, го?- /WorkingOwl\n'
-                                           'YT канал моего друга - /Friziz')
+                                           'Антон, го?- /WorkingOwl')
+                                           #'YT канал моего друга - /Friziz')
 
 
 @bot.message_handler(commands=['joke'])
