@@ -24,19 +24,28 @@ def cr_ni12ck(message):
 def renton(message):
     bot.send_message(message.from_user.id, 'https://www.japandict.com/')
 
+
 @bot.message_handler(commands=['WorkingOwl'])
 def workingowl(message):
-    bot.send_message(message.from_user.id, 'Го в форточку(Fortnite)? \n https://i.gifer.com/WxTz.gif')
+    bot.send_message(message.from_user.id, 'Го в форточку (Fortnite)?\n'
+                                           'https://i.gifer.com/WxTz.gif')
+
+
+@bot.message_handler(commands=['Friziz'])
+def friziz(message):
+    bot.send_message(message.from_user.id, 'Подпишитесь на канал:\n'
+                                           'https://youtube.com/@friziz.official?si=w4nIdVvsenHcNHol')
 
 
 @bot.message_handler(commands=['help', 'start'])
 def get_help(message):
-    bot.send_message(message.from_user.id, 'Введите название города, чтобы получить прогноз погоды на завтра \n'
-                                           'Хотите анекдот? - /joke \n'
-                                           'Японский словарь - /Renton \n'
-                                           'Список покупок - /purchases \n'
-                                           'Добавление товара - /add "сообщение" \n'
-                                           'Антон, го?- /WorkingOwl')
+    bot.send_message(message.from_user.id, 'Введите название города, чтобы получить прогноз погоды на завтра\n'
+                                           'Хотите анекдот? - /joke\n'
+                                           'Японский словарь - /Renton\n'
+                                           'Список покупок - /purchases\n'
+                                           'Добавление товара - /add "сообщение"\n'
+                                           'Антон, го?- /WorkingOwl\n'
+                                           'YT канал моего друга - /Friziz')
 
 
 @bot.message_handler(commands=['joke'])
@@ -85,12 +94,12 @@ def get_weather_in(message, location):
         emoji = '🌸'
 
     bot.send_message(message.from_user.id,
-                     f'Текущая температура в городе {location}: {weather.current_condition[0].temp_c}С \n'
+                     f'Текущая температура в городе {location}: {weather.current_condition[0].temp_c}С\n'
                      f'Погода в городе {location} завтра ({emoji} '
                      # Сначала идёт парсинг строки str p, а потом форматирование str f 
-                     f'{datetime.strptime(weather.weather[1].date, '%Y-%m-%d').strftime('%d.%m.%Y')} {emoji}) \n'
-                     f'Средняя температура: {weather.weather[1].avgtemp_c}С \n'
-                     f'Минимальная температура: {weather.weather[1].mintemp_c}С \n'
+                     f'{datetime.strptime(weather.weather[1].date, '%Y-%m-%d').strftime('%d.%m.%Y')} {emoji})\n'
+                     f'Средняя температура: {weather.weather[1].avgtemp_c}С\n'
+                     f'Минимальная температура: {weather.weather[1].mintemp_c}С\n'
                      f'Максимальная температура: {weather.weather[1].maxtemp_c}С')
 
 
