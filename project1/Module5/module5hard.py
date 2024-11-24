@@ -97,7 +97,7 @@ class User:
 # title(заголовок, строка), duration(продолжительность, секунды), time_now(секунда остановки (изначально 0)),
 # adult_mode(ограничение по возрасту, bool (False по умолчанию))
 class Video:
-    def __init__(self, title: str, duration: int, time_now: int, adult_mode: bool):
+    def __init__(self, title: str, duration: int):
         # title(заголовок, строка)
         self.tittle = title
         # duration(продолжительность, секунды)
