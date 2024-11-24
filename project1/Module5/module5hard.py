@@ -125,7 +125,7 @@ class UrTube:
     Класс UrTube, содержащий атрибуты: список пользователей, список видео, текущий пользователь
     """
 
-    def __init__(self, users, videos, current_user):
+    def __init__(self):
         # users(список объектов User)
         self.users = []
         # videos(список объектов Video)
