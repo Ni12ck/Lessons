@@ -151,6 +151,7 @@ class UrTube:
                 print('Пользователь {nickname} уже существует')
             else:
                 self.users.append(User(nickname, password, age))
+                self.current_user = user
 
     # Создал метод log_out для сброса текущего пользователя на None.
     def log_out(self):
