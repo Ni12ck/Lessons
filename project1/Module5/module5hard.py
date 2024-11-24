@@ -94,13 +94,17 @@ class User:
         # age(возраст, число)
         self.age = age
 
+    # метод вывода имени пользователя
+    def __str__(self):
+        return self.nickname
+
 
 # Создаю класс Video, каждый объект класса Video должен обладать следующими атрибутами:
 # title(заголовок, строка), duration(продолжительность, секунды), time_now(секунда остановки (изначально 0)),
 # adult_mode(ограничение по возрасту, bool (False по умолчанию))
 class Video:
     """
-    Класс видео, содержащий атрибуты: заголовок, продолжительность
+    Класс видео, содержащий атрибуты: заголовок, продолжительность, секунду остановки и ограничение по возрасту
     """
 
     def __init__(self, title: str, duration: int, time_now=0, adult_mode=False):
@@ -113,7 +117,7 @@ class Video:
         # adult_mode(ограничение по возрасту, bool (False по умолчанию))
         self.adult_mode = adult_mode
 
-    # функция для будущего поиска по названию
+    # метод для будущего использования названия
     def __str__(self):
         return self.title
 
@@ -122,7 +126,8 @@ class Video:
 # users(список объектов User), videos(список объектов Video), current_user(текущий пользователь, User)
 class UrTube:
     """
-    Класс UrTube, содержащий атрибуты: список пользователей, список видео, текущий пользователь
+    Класс UrTube, объекты которого обладают следующими атрибутами: список пользователей, список видео, текущий
+    пользователь
     """
 
     def __init__(self):
@@ -137,6 +142,7 @@ class UrTube:
     # с такими же логином и паролем. Если такой пользователь существует, то current_user меняется на найденного. Тут
     # password передаётся в виде строки, а сравнивается по хэшу.
     def log_in(self, nickname, password):
+        # переменная для сравнения паролей hash_password
         hash_password = hash(password)
         for user in self.users:
             if user.nickname == nickname and user.password == hash_password:
@@ -146,12 +152,15 @@ class UrTube:
     # список, если пользователя не существует (с таким же nickname). Если существует, выводит на экран:
     # "Пользователь {nickname} уже существует". После регистрации, вход выполняется автоматически.
     def register(self, nickname, password, age):
+        password = hash(password)
         for user in self.users:
-            if user.nickname == nickname:
-                print('Пользователь {nickname} уже существует')
-            else:
-                self.users.append(User(nickname, password, age))
-                self.current_user = user
+            if nickname == user.nickname:
+                print(f'Пользователь {nickname} уже существует')
+                return
+        # добавление нового пользователя в список пользователей
+        reg_user = User(nickname, password, age)
+        self.users.append(reg_user)
+        self.current_user = reg_user
 
     # Создал метод log_out для сброса текущего пользователя на None.
     def log_out(self):
@@ -167,11 +176,11 @@ class UrTube:
     # Создал метод get_videos, который принимает поисковое слово и возвращает список названий всех видео, содержащих
     # поисковое слово. Следует учесть, что слово 'UrbaN' присутствует в строке 'Urban the best' (не учитывать регистр).
     def get_videos(self, search_word):
-        search_word = str(search_word).lower()
         # список названий всех видео, содержащих поисковое слов
         list_after_search = []
         for video in self.videos:
-            if search_word in video.title.lower():
+            # для упрощения поиска список и слово переведу в нижний регистр
+            if str(search_word).lower() in video.title.lower():
                 list_after_search.append(str(video))
         return list_after_search
 
@@ -192,19 +201,21 @@ class UrTube:
             return
         for video in self.videos:
             if video.title == title:
-                if video.adult_mode and self.current_user.age < 18:
+                # проверка возрастных ограничений
+                if video.adult_mode == True and self.current_user.age < 18:
                     print("Вам нет 18 лет, пожалуйста покиньте страницу")
                     return
-                for second in range(video.time_now, video.duration):
-                    print(second)
+                # вывод секунд
+                for sec in range(video.time_now, video.duration):
+                    print(sec + 1, end=" ", flush=True)
                     time.sleep(1)
                 print("Конец видео")
                 video.time_now = 0
                 return
 
+
 # Входная точка программы
 if __name__ == '__main__':
-
     # Код для проверки:
     ur = UrTube()
     v1 = Video('Лучший язык программирования 2024 года', 200)
