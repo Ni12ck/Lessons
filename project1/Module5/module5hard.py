@@ -77,6 +77,8 @@
 
 # Импорт библиотеки hashlib
 import hashlib
+# Импорт библиотеки time
+import time
 
 
 # Создаю класс User, каждый объект класса User должен обладать следующими атрибутами:
@@ -115,33 +117,46 @@ class UrTube:
         # videos(список объектов Video)
         self.videos = []
         #  current_user(текущий пользователь, User)
-        self.current_user = User
+        self.current_user = User # ?????
 
     # Создал метод log_in, который принимает на вход аргументы: nickname, password и пытается найти пользователя в users
     # с такими же логином и паролем. Если такой пользователь существует, то current_user меняется на найденного. Тут
     # password передаётся в виде строки, а сравнивается по хэшу.
     def log_in(self, nickname, password):
         pass
+        #if nickname == User(nickname):
+            #self.current_user = User
+
 
     # Создал метод register, который принимает три аргумента: nickname, password, age, и добавляет пользователя в
     # список, если пользователя не существует (с таким же nickname). Если существует, выводит на экран:
     # "Пользователь {nickname} уже существует". После регистрации, вход выполняется автоматически.
     def register(self, nickname, password, age):
-        pass
+        if nickname not in self.users:
+            self.users[nickname] = [password, age]
+        else:
+            print(f'Пользователь {nickname} уже существует')
 
     # Создал метод log_out для сброса текущего пользователя на None.
     def log_out(self):
-        pass
+        self.current_user = None
 
     # Создал метод add, который принимает неограниченное кол-во объектов класса Video и все добавляет в videos, если
     # с таким же названием видео ещё не существует. В противном случае ничего не происходит.
-    def add(self):
-        pass
+    def add(self, title, duration, time_now, adult_mode):
+        if title not in self.videos:
+            video = str(Video(title, duration, time_now, adult_mode))
+            self.videos.append(video)
 
     # Создал метод get_videos, который принимает поисковое слово и возвращает список названий всех видео, содержащих
     # поисковое слово. Следует учесть, что слово 'UrbaN' присутствует в строке 'Urban the best' (не учитывать регистр).
     def get_videos(self, search_word):
-        pass
+        search_word = str(search_word).lower()
+        # список названий всех видео, содержащих поисковое слов
+        list_to_search = []
+        # for i in range(len(list_to_search)): - из 3.1 пр Пространство имён
+        #     if search_word == str(list_to_search[i]).lower():
+        #         return list_to_search.append(tittle)
 
     # Создал метод watch_video, который принимает название фильма, если не находит точного совпадения(вплоть до
     # пробела), то ничего не воспроизводится, если же находит - ведётся отчёт в консоль на какой секунде ведётся
@@ -157,12 +172,15 @@ class UrTube:
     def watch_video(self):
         pass
 
+
 # Входная точка программы
 if __name__ == '__main__':
     pass
+
     # ur = UrTube()
     # v1 = Video('Лучший язык программирования 2024 года', 200)
     # v2 = Video('Для чего девушкам парень программист?', 10, adult_mode=True)
+
     #
     # # Добавление видео
     # ur.add(v1, v2)
