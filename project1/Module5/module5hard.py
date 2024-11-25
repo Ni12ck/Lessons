@@ -77,6 +77,8 @@
 
 # Импорт библиотеки time
 import time
+# Импорт библиотеки hashlib для хэширования данных
+import hashlib
 
 
 # Создаю класс User, каждый объект класса User должен обладать следующими атрибутами:
@@ -86,11 +88,11 @@ class User:
     Класс пользователя, содержащий атрибуты: имя пользователя, пароль, возраст
     """
 
-    def __init__(self, nickname: str, password: int, age: int):
+    def __init__(self, nickname: str, password, age: int):
         # nickname(имя пользователя, строка)
         self.nickname = nickname
         # password(в хэшированном виде, число)
-        self.password = hash(password)
+        self.password = hashlib.sha256(password.encode()).hexdigest()
         # age(возраст, число)
         self.age = age
 
@@ -143,7 +145,7 @@ class UrTube:
     # password передаётся в виде строки, а сравнивается по хэшу.
     def log_in(self, nickname, password):
         # переменная для сравнения паролей hash_password
-        hash_password = hash(password)
+        hash_password = hashlib.sha256(password.encode()).hexdigest()
         for user in self.users:
             if user.nickname == nickname and user.password == hash_password:
                 self.current_user = user
@@ -152,7 +154,7 @@ class UrTube:
     # список, если пользователя не существует (с таким же nickname). Если существует, выводит на экран:
     # "Пользователь {nickname} уже существует". После регистрации, вход выполняется автоматически.
     def register(self, nickname, password, age):
-        password = hash(password)
+        password = hashlib.sha256(password.encode()).hexdigest()
         for user in self.users:
             if nickname == user.nickname:
                 print(f'Пользователь {nickname} уже существует')
