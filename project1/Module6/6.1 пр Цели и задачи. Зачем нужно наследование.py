@@ -96,10 +96,16 @@ p1 = Flower('Цветик семицветик')
 p2 = Fruit('Заводной апельсин')
 
 print(f'Имя животного a1: {a1.name}')
+print(f'Имя животного a2: {a2.name}')
 print(f'Имя растения p1: {p1.name}')
+print(f'Имя растения p2: {p2.name}')
 
-print(f'Животное a1 живо? - {a1.alive}')
-print(f'Животное a2 накормлено? - {a2.fed}')
+print()
+
+print(f'Животное {a1.name} живо? - {a1.alive}')
+print(f'Животное {a2.name} живо? - {a2.alive}')
+print(f'Животное {a1.name} накормлено? - {a1.fed}')
+print(f'Животное {a2.name} накормлено? - {a2.fed}')
 
 print()
 
@@ -107,5 +113,9 @@ print()
 a1.eat(p1)
 a2.eat(p2)
 
-print(f'Животное a1 живо? - {a1.alive}')
-print(f'Животное a2 накормлено? - {a2.fed}')
+print()
+
+print(f'Животное {a1.name} живо? - {a1.alive}')
+print(f'Животное {a2.name} живо? - {a2.alive}')
+print(f'Животное {a1.name} накормлено? - {a1.fed}')
+print(f'Животное {a2.name} накормлено? - {a2.fed}')
