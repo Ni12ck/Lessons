@@ -73,10 +73,6 @@ class Plant:
     def __init__(self, name):
         self.name = name  # name - индивидуальное название каждого растения
 
-    # метод вывод съедобности растения
-    def __str__(self):
-        return self.edible
-
 
 # Создал класс Flower
 class Flower(Plant):  # Наследование класса Plant (родительского) классом Flower (дочерним)
