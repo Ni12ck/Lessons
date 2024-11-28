@@ -122,7 +122,10 @@ class AquaticAnimal(Animal):
     # в _cords. Чтобы сделать dz положительным, берите его значение по модулю (функция abs). Скорость движения при
     # нырянии должна уменьшаться в 2 раза, в отличие от обычного движения. (speed / 2)
     def dive_in(self, dz):
-        self._cords[2] = self._cords[2] - abs(dz) * self.speed / 2
+        if (self._cords[2] - abs(dz) * self.speed / 2) < 0:
+            print("It's too deep, i can't dive :(")
+        else:
+            self._cords[2] = self._cords[2] - abs(dz) * self.speed / 2
 
 
 # PoisonousAnimal - класс описывающий ядовитых животных. Наследуется от Animal
