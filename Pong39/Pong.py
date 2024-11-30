@@ -15,6 +15,7 @@ class Bar(arcade.Sprite):
 class Ball(arcade.Sprite):
     def __init__(self):
         super().__init__('ball.png', 1.0)
+        # меняет координату x
         self.change_x = 5
 
     # движение мячика
