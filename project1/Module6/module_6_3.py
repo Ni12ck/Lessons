@@ -81,9 +81,9 @@ class Animal:
         if (self._cords[2] + dz * self.speed) < 0:
             print("It's too deep, i can't dive :(")
         else:
-            self._cords[0] = self._cords[0] + dx * self.speed
-            self._cords[1] = self._cords[1] + dy * self.speed
-            self._cords[2] = self._cords[2] + dz * self.speed
+            self._cords[0] += dx * self.speed
+            self._cords[1] += dy * self.speed
+            self._cords[2] += dz * self.speed
 
     # Метод get_cords(self), который выводит координаты в формате: "X: <координаты по x>, Y: <координаты по y>,
     # Z: <координаты по z>
@@ -122,7 +122,7 @@ class AquaticAnimal(Animal):
     # в _cords. Чтобы сделать dz положительным, берите его значение по модулю (функция abs). Скорость движения при
     # нырянии должна уменьшаться в 2 раза, в отличие от обычного движения. (speed / 2)
     def dive_in(self, dz):
-        self._cords[2] = self._cords[2] - abs(dz) * self.speed / 2
+        self._cords[2] -= int(abs(dz) * self.speed / 2)
 
 
 # PoisonousAnimal - класс описывающий ядовитых животных. Наследуется от Animal
