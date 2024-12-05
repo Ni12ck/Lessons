@@ -23,7 +23,7 @@ def custom_write(file_name, strings):
         # Создаю пары, состоящие элементов списка strings и счётчика с номера 1
         for i, string in enumerate(strings, start=1):
             file_tell = file.tell()  # Позиция курсора
-            file.write(f'{string}\n')  # Запись в файл file_name все строки из списка strings, каждая на новой строке
+            file.write(f'{string}\n')  # Запись в файл file_name всех строк из списка strings, каждая на новой строке
             strings_positions[(i, file_tell)] = string  # Присвоение номера строки и позиции курсора строке из списка
         file.close() # Закрытие файла file_name
         # Возвращаю словарь strings_positions, где ключом будет кортеж (<номер строки>, <байт начала строки>), а
