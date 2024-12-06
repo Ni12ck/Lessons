@@ -89,7 +89,7 @@ class WordsFinder:
             # Счётчик
             counts = 0
             for counted_word in words:
-                if word.lower() == counted_word.lower():
+                if word.lower() == counted_word:
                     counts += 1
                 count.update({name: counts})
             return count
