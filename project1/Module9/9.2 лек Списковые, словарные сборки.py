@@ -40,7 +40,7 @@ print(list_comp_3)
 print()
 
 # Генерация для двух элементов
-print('Пятый пример')
+print('Пятый пример:')
 # list_comp_4 = [x * y for x in collection for y in collection_2]
 list_numbers_1 = [3, 1, 4, 1, 5, 9, 2, 6]
 list_numbers_2 = [2, 7, 1, 8, 2, 8, 1, 8]
@@ -56,7 +56,7 @@ print(f'Перемножение элементов в списках, если 
 print()
 
 # Генераторы
-print('Шестой пример')
+print('Шестой пример:')
 result_6_1 = {x for x in my_numbers}  # my_numbers = [3, 1, 4, 1, 5, 9, 2, 6]
 print(f'Получается отфильтрованное множество: {result_6_1}')
 
