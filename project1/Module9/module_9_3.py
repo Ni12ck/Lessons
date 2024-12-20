@@ -33,3 +33,7 @@ print(f'Разность длин пар строк в списках: {list(fir
 # позициях из списков first и second. Составил эту сборку не используя функцию zip, а используя функции range и len.
 second_result = (len(first[i]) == len(second[i]) for i in range(len(first)))
 print(f'Сравнение длин строк соответствующих по индексу: {list(second_result)}')
+
+# То же самое, но с использованием zip
+third_result = (len(x) == len(y) for x, y in zip(first, second))
+print(f'Сравнение длин строк: {list(third_result)}')
