@@ -71,7 +71,7 @@ def get_advanced_writer(file_name):
             # for element in data_set:
             #     file.write(f'{element}\n')
             # Второй вариант:
-            file.write(repr(data_set))
+            file.write(f'{repr(data_set)}\n')
 
     # Функция get_advanced_writer возвращает функцию write_everything.
     return write_everything
