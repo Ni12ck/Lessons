@@ -41,8 +41,7 @@ def is_prime(func):
 # Создал функцию sum_three, которая складывает три числа, обернув её в декоратор is_prime
 @is_prime
 def sum_three(a, b, c):
-    result = a + b + c
-    return result
+    return a + b + c
 
 
 # Примеры выполнения
