@@ -21,9 +21,9 @@
 def is_prime(func):
     def wrapper(*args):
         res_func = func(*args)
-        # Создам переменную res_is_prime, которая будет указывать на простоту числа
+        # Создал переменную res_is_prime, которая будет указывать на простоту числа
         res_is_prime = True
-        # Создаю цикл, который проверяет на деление без остатка
+        # Создал цикл, который проверяет на деление без остатка
         for number in range(2, res_func):
             if res_func % number == 0:
                 res_is_prime = False
