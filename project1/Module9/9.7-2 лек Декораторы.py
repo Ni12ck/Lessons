@@ -92,4 +92,3 @@ def digits_2(*args):
 
 result_2 = digits_2(3141, 5926, 2718, 2818)
 print(result_2)
-print()
