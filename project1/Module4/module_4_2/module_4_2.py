@@ -23,7 +23,7 @@ inner_function()
 
 # Получил ошибку при вызове inner_function, потому что test_function объемлющая для inner_function:
 # Traceback (most recent call last):
-#   File "D:\projects_for_university\Lessons\project1\Модуль 4\Пространство имен и области видимости\module_4_2.py", line 18, in <module>
+#   File "D:\projects_for_university\Lessons\project1\Module4\module_4_2\module_4_2.py", line 18, in <module>
 #     inner_function()
 #     ^^^^^^^^^^^^^^
 # NameError: name 'inner_function' is not defined. Did you mean: 'test_function'?
