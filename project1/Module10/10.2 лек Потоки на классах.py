@@ -8,6 +8,7 @@
 import threading
 import time
 
+lock = threading.Lock()
 
 # Создадим класс MyThread, наследуемый от класса ‘threading.Thread’. Здесь есть важный момент: обычно при создании
 # собственного класса-потока необходимо переопределить метод ‘run()’. Именно в этом методе описывается порядок действий,
@@ -32,14 +33,15 @@ class MyThread(threading.Thread):
             # Задержка
             time.sleep(delay)
             # Красивый вывод времени
-            print(f'Поток {name} показывает время {time.ctime(time.time())}\n')
+            print(f'Поток {name} показывает время {time.ctime(time.time())}')
             # Чтобы не повторялось бесконечное количество времени, счётчик будем уменьшать
             counter -= 1
 
     # Переопределяем метод run и описываем логику потока
     def run(self):
         print(f'Поток {self.name} запущен')
-        self.timer(self.name, self.counter, self.delay)
+        with lock:
+            self.timer(self.name, self.counter, self.delay)
         print(f'Поток {self.name} завершён')
 
 
