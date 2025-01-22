@@ -45,10 +45,10 @@ class RunnerTest(unittest.TestCase):
         # Создал два объекта класса Runner
         runner_3 = runner.Runner('Challenge_1')
         runner_4 = runner.Runner('Challenge_2')
-        # Вызвал метод walk у этого объекта 10 раз
+        # Вызвал метод walk у объекта runner_3 10 раз
         for i in range(10):
             runner_3.walk()
-        # Вызвал метод run у этого объекта 10 раз
+        # Вызвал метод run у объекта runner_4 10 раз
         for i in range(10):
             runner_4.run()
         # Методом assertNotEqual проверяю неравенство результатов
