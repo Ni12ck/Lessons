@@ -1,0 +1,7 @@
+2025-01-26 16:51:16,904 | INFO | Delenie 3 na 4
+2025-01-26 16:51:16,904 | ERROR | Delenie na nol
+Traceback (most recent call last):
+  File "D:\projects_for_university\Lessons\project1\Module12\module12-1\calc.py", line 18, in div
+    a / b
+    ~~^~~
+ZeroDivisionError: division by zero
