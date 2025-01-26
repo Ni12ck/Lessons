@@ -26,6 +26,10 @@ import logging
 import rt_with_exceptions
 import unittest
 
+# настроил basicConfig
+logging.basicConfig(level=logging.INFO, filemode='w',filename='runner_tests.log', encoding='utf-8',
+                    format='%(asctime)s | %(levelname)s | %(message)s' )
+
 # Создал класс RunnerTest, наследуемый от TestCase из модуля unittest
 class RunnerTest(unittest.TestCase):
     # Добавил атрибут is_frozen = False
@@ -93,7 +97,5 @@ class RunnerTest(unittest.TestCase):
 
 # Запуск тестов
 if __name__ == '__main__':
-    # настроил basicConfig
-    logging.basicConfig(level=logging.INFO, filemode='w',filename='runner_tests.log', encoding='utf-8',
-                        format='%(asctime)s | %(levelname)s | %(message)s' )
+
     unittest.main()
