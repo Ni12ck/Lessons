@@ -36,13 +36,22 @@ class RunnerTest(unittest.TestCase):
     @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     # Создал метод test_walk
     def test_walk(self):
-        # Создал объект класса Runner
-        runner_1 = rt_with_exceptions.Runner('Ni12ck')
-        # Вызвал метод walk у этого объекта 10 раз
-        for i in range(10):
-            runner_1.walk()
-        # Методом assertEqual сравнил distance этого объекта со значением 50
-        self.assertEqual(runner_1.distance, 50)
+        # Обернул основной код конструкцией try-except
+        try:
+            # Создал объект класса Runner, передал в него отрицательное значение скорости
+            runner_1 = rt_with_exceptions.Runner('Ni12ck', -2)
+            # Вызвал метод walk у этого объекта 10 раз
+            for i in range(10):
+                runner_1.walk()
+            # В блок try добавил логирование INFO с сообщением '"test_walk" выполнен успешно'
+            logging.info('"test_walk" выполнен успешно')
+            # Методом assertEqual сравнил distance этого объекта со значением 50
+            self.assertEqual(runner_1.distance, 50)
+
+        # В блоке except обработал исключение соответствующего типа и логировал его на уровне WARNING с сообщением
+        # "Неверный тип данных для объекта Runner".
+        except ValueError:
+            logging.warning("Неверная скорость для Runner", exc_info=True)
 
         # Если поменять значение на 51, то тест не будет пройден, так как ожидаемый результат (51) не будет совпадать с
         # получившимся (50) - AssertionError: 50 != 51
@@ -51,13 +60,21 @@ class RunnerTest(unittest.TestCase):
     @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     # Создал метод test_run
     def test_run(self):
-        # Создал объект класса Runner
-        runner_2 = rt_with_exceptions.Runner('ve_ronyca')
-        # Вызвал метод run у этого объекта 10 раз
-        for i in range(10):
-            runner_2.run()
-        # Методом assertEqual сравнил distance этого объекта со значением 100
-        self.assertEqual(runner_2.distance, 100)
+        # Обернул основной код конструкцией try-except
+        try:
+            # Создал объект класса Runner, передав имя с неверным типом
+            runner_2 = rt_with_exceptions.Runner(12,10)
+            # Вызвал метод run у этого объекта 10 раз
+            for i in range(10):
+                runner_2.run()
+            # В блок try добавил логирование INFO с сообщением '"test_run" выполнен успешно'
+            logging.info('"test_run" выполнен успешно')
+            # Методом assertEqual сравнил distance этого объекта со значением 100
+            self.assertEqual(runner_2.distance, 100)
+        # В блоке except обработал исключение соответствующего типа и логировал его на уровне WARNING с сообщением
+        # "Неверный тип данных для объекта Runner".
+        except TypeError:
+            logging.warning("Неверный тип данных для объекта Runner", exc_info=True)
 
     @unittest.skipIf(is_frozen, 'Тесты в этом кейсе заморожены')
     # Создал метод test_challenge
