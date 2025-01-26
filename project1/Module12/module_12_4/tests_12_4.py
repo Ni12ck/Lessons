@@ -27,8 +27,9 @@ import rt_with_exceptions
 import unittest
 
 # настроил basicConfig
-logging.basicConfig(level=logging.INFO, filemode='w',filename='runner_tests.log', encoding='utf-8',
-                    format='%(asctime)s | %(levelname)s | %(message)s' )
+logging.basicConfig(level=logging.INFO, filemode='w', filename='runner_tests.log', encoding='utf-8',
+                    format='%(asctime)s | %(levelname)s | %(message)s')
+
 
 # Создал класс RunnerTest, наследуемый от TestCase из модуля unittest
 class RunnerTest(unittest.TestCase):
@@ -67,7 +68,7 @@ class RunnerTest(unittest.TestCase):
         # Обернул основной код конструкцией try-except
         try:
             # Создал объект класса Runner, передав имя с неверным типом
-            runner_2 = rt_with_exceptions.Runner(12,10)
+            runner_2 = rt_with_exceptions.Runner(12, 10)
             # Вызвал метод run у этого объекта 10 раз
             for i in range(10):
                 runner_2.run()
@@ -95,7 +96,7 @@ class RunnerTest(unittest.TestCase):
         # Методом assertNotEqual проверяю неравенство результатов
         self.assertNotEqual(runner_3.distance, runner_4.distance)
 
+
 # Запуск тестов
 if __name__ == '__main__':
-
     unittest.main()
